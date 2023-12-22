@@ -9,6 +9,8 @@ namespace ConsoleRPG
         // # - wall
         // @ - enemy
         // & - player
+        public List<BaseBlock> listBlocks = new List<BaseBlock>();
+        public List<BaseEntety> listEntities = new List<BaseEntety>();
         private string[][] DataMap =
             {
                 new string[] {".",".",".",".",".",".",".",".","#","."},
@@ -27,7 +29,7 @@ namespace ConsoleRPG
         {
             MoveEntety(entetie);
         }
-
+        
         public Map(List<BaseEntety> enteties)
         {
             foreach (var ent in enteties)
@@ -87,6 +89,26 @@ namespace ConsoleRPG
                 baseEntety.PositionY = baseEntety.OldPos[1];
             }
         }
+        public void Pursing()
+        {
+            for (int i = 0; i!=10; i++)
+            {
+                for (int j = 0; j != 10; j++)
+                {
+                    int[] _pos = { i, j };
+                    switch (DataMap[i][j])
+                    {
+                        case "#":
+                            listBlocks.Add(new Wall( _pos, "#" ));
+                            break;
 
+                        case "@":  
+                            break;
+
+                    } 
+                    
+                }
+            }
+        }
     }
 }
