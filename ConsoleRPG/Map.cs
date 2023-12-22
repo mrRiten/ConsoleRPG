@@ -5,12 +5,14 @@ namespace ConsoleRPG
 {
     internal class Map
     {
+
+        public List<BaseBlock> listBlocks = new List<BaseBlock>();
+        public List<BaseEntety> listEntities = new List<BaseEntety>();
+
         // . - empty field
         // # - wall
         // @ - enemy
         // & - player
-        public List<BaseBlock> listBlocks = new List<BaseBlock>();
-        public List<BaseEntety> listEntities = new List<BaseEntety>();
         private string[][] DataMap =
             {
                 new string[] {".",".",".",".",".",".",".",".","#","."},
