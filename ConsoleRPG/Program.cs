@@ -19,9 +19,11 @@ namespace ConsoleRPG
                     case "/play":
                         StartGame();
                         break;
+
                     case "/about":
                         UIConsole.AboutProg();
                         break;
+
                     case "/quit":
                         Environment.Exit(0);
                         break;
@@ -40,6 +42,7 @@ namespace ConsoleRPG
                 UIConsole.PlayerInfo(player);
                 player.Move(Console.ReadKey());
                 map.MoveEntety(player);
+
             }
         }
     }
