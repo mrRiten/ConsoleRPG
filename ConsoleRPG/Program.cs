@@ -18,8 +18,10 @@ namespace ConsoleRPG
                     case "/play":
                         StartGame();
                         break;
+
                     case "/about":
                         break;
+
                     case "/quit":
                         break;
                 }
@@ -35,6 +37,7 @@ namespace ConsoleRPG
                 map.PrintMap();
                 player.Move(Console.ReadKey());
                 map.MoveEntety(player);
+
             }
         }
     }
