@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ConsoleRPG
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
             Console.Title = "ConsoleRPG";
             var ui = new UIConsole();
-            //list base entiti второй лист хранит base block все объекты классов не имеют внутренние названия для програмиста
             ui.PrintLogo();
             while (true)
             {
