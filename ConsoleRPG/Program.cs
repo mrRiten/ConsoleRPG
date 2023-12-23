@@ -4,7 +4,6 @@ namespace ConsoleRPG
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             Console.Title = "ConsoleRPG";
@@ -12,7 +11,6 @@ namespace ConsoleRPG
             ui.PrintLogo();
             while (true)
             {
-                
                 ui.PrintMenu();
                 switch (ui.CurrentCom)
                 {

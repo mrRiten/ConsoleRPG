@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace ConsoleRPG
 {
@@ -37,7 +32,7 @@ namespace ConsoleRPG
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка при сохранении массива в файл: {ex.Message}");
+                Console.WriteLine($"Ошибка при сохранении карты игры в файл: {ex.Message}");
             }
         }
     }
