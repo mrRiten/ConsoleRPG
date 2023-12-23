@@ -39,14 +39,15 @@ namespace ConsoleRPG
             var player = new Player(pos, "&", "player", 100, 10);
             var map = new Map(player);
             map.Pursing();
+            
             while (player.IsAlive)
             {
                 map.PrintMap();
                 UIConsole.PlayerInfo(player);
                 player.Move(Console.ReadKey());
+                
                 map.MoveEntety(player);
                 map.EmemiDamageRangeCheck(player);
-
                 player.CkeckHealth();
             }
         }

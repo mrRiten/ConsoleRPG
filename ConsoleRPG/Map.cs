@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ConsoleRPG
 {
@@ -84,6 +85,7 @@ namespace ConsoleRPG
             {
                 DataMap[baseEntety.OldPos[1]][baseEntety.OldPos[0]] = ".";
                 DataMap[baseEntety.PositionY][baseEntety.PositionX] = baseEntety.Designation;
+                SaveGame.SaveMap(DataMap);
             }
             else
             {
@@ -129,4 +131,6 @@ namespace ConsoleRPG
             }
         }
     }
+
+    
 }

@@ -44,14 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks.cs" />
+    <Compile Include="edutest.cs" />
     <Compile Include="Entities.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveGame.cs" />
     <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="saves\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
