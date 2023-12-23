@@ -30,19 +30,24 @@ namespace ConsoleRPG
                 }
             }
         }
+
+
         static void StartGame()
         {
             // Мб сделать отдельную функцию settings чтобы удобно управлять настройками player (и не только) и в будующем их маштабировать?
-            int[] pos = { 0, 0 };
+            int[] pos = { 5, 2 };
             var player = new Player(pos, "&", "player", 100, 10);
             var map = new Map(player);
-            while (true)
+            map.Pursing();
+            while (player.IsAlive)
             {
                 map.PrintMap();
                 UIConsole.PlayerInfo(player);
                 player.Move(Console.ReadKey());
                 map.MoveEntety(player);
+                map.EmemiDamageRangeCheck(player);
 
+                player.CkeckHealth();
             }
         }
     }
