@@ -10,8 +10,10 @@ namespace ConsoleRPG
         public abstract string Designation { get; set; }
         public abstract int Health { get; set; }
         public abstract int Damage { get; set; }
+        public abstract bool IsAlive { get; set; }
 
         public abstract int[] OldPos { get; set; }
+
 
         public BaseEntety(int[] pos, string desing)
         {
@@ -31,15 +33,28 @@ namespace ConsoleRPG
         public int[][] DamageRange()
         {
             int[] _pos = { PositionX, PositionY };
+
             int[][] _rangeDamage =
                 {
-                    new int[] {_pos[1], _pos[0]--},
-                    new int[] {_pos[1], _pos[0]++},
-                    new int[] {_pos[1]++, _pos[0]},
-                    new int[] {_pos[1]--, _pos[0]},
+                    new int[] { _pos[0] - 1, _pos[1]},
+                    new int[] { _pos[0] + 1, _pos[1]},
+                    new int[] { _pos[0], _pos[1] - 1},
+                    new int[] { _pos[0], _pos[1] + 1},
                 };
 
             return _rangeDamage;
+        }
+
+        public bool CheckIsAlive()
+        {
+            if (Health > 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
@@ -53,6 +68,7 @@ namespace ConsoleRPG
         public override string Designation { get; set; }
         public override int Health { get; set; }
         public override int Damage { get; set; }
+        public override bool IsAlive { get; set; } = true;
 
         public override int[] OldPos { get; set; }
 
@@ -72,6 +88,7 @@ namespace ConsoleRPG
         public override string Designation { get; set; }
         public override int Health { get; set; }
         public override int Damage { get; set; }
+        public override bool IsAlive { get; set; } = true;
 
         public override int[] OldPos { get; set; }
 
@@ -108,6 +125,14 @@ namespace ConsoleRPG
                     PositionX--;
                     break;
 
+            }
+        }
+
+        public void CkeckHealth()
+        {
+            if (!CheckIsAlive())
+            {
+                IsAlive = false;
             }
         }
 

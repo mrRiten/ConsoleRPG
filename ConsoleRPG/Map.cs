@@ -91,25 +91,41 @@ namespace ConsoleRPG
                 baseEntety.PositionY = baseEntety.OldPos[1];
             }
         }
+
         public void Pursing()
         {
             for (int i = 0; i!=10; i++)
             {
                 for (int j = 0; j != 10; j++)
                 {
-                    int[] _pos = { i, j };
+                    int[] _pos = { j, i };
                     switch (DataMap[i][j])
                     {
                         case "#":
-                            listBlocks.Add(new Wall( _pos, "#" ));
+                            listBlocks.Add(new Wall( _pos, "#", 200));
                             break;
 
-                        case "@":  
+                        case "@":
+                            listEntities.Add(new Enemi(_pos, "@", "Wolf", 80, 5));
                             break;
 
-                    } 
-                    
+                    }
                 }
+            }
+        }
+
+        public void EmemiDamageRangeCheck(Player player)
+        {
+            foreach (var emine in listEntities)
+            {
+                foreach (var damgeRange in emine.DamageRange())
+                {
+                    if (damgeRange[0] == player.PositionX && damgeRange[1] == player.PositionY)
+                    {
+                        player.Health -= emine.Damage;
+                    }
+                }
+
             }
         }
     }
