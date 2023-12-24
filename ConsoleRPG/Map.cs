@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace ConsoleRPG
 {
@@ -27,7 +26,6 @@ namespace ConsoleRPG
                 new string[] {".",".",".","#",".","#",".",".",".","."},
                 new string[] {".",".",".",".",".",".",".",".",".","."},
             };
-
         public Map(BaseEntety entetie)
         {
             MoveEntety(entetie);
@@ -53,18 +51,29 @@ namespace ConsoleRPG
             }
         }
 
-        public void PrintMap()
+        public void PrintMap(bool IsContinue)
         {
             Console.Clear();
-            // Drawing the map
-            foreach (var line in DataMap)
+
+            
+            if (IsContinue)
             {
-                foreach (var item in line)
-                {
-                    Console.Write($" {item} ");
-                }
-                Console.WriteLine("");
+                Load.LoadMap();
             }
+            else
+            {
+                // Drawing the map
+                foreach (var line in DataMap)
+                {
+                    foreach (var item in line)
+                    {
+                        Console.Write($" {item} ");
+                    }
+                    Console.WriteLine();
+                }
+                Save.SaveMap(DataMap);
+            }
+
         }
 
         public bool ValidationPosition(int posX, int posY)
@@ -85,7 +94,6 @@ namespace ConsoleRPG
             {
                 DataMap[baseEntety.OldPos[1]][baseEntety.OldPos[0]] = ".";
                 DataMap[baseEntety.PositionY][baseEntety.PositionX] = baseEntety.Designation;
-                SaveGame.SaveMap(DataMap);
             }
             else
             {
@@ -127,7 +135,6 @@ namespace ConsoleRPG
                         player.Health -= emine.Damage;
                     }
                 }
-
             }
         }
     }

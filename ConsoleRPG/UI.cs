@@ -12,7 +12,6 @@ namespace ConsoleRPG
         }
         public void PrintLogo()
         {
-            // Сделал логотип по центру
             string text1 = "   _____                                 _          _____    _____     _____ \r\n";
             string text2 = "  / ____|                               | |        |  __ \\  |  __ \\   / ____|\r\n";
             string text3 = " | |        ___    _ __    ___    ___   | |   ___  | |__) | | |__) | | |  __ \r\n";
@@ -22,7 +21,7 @@ namespace ConsoleRPG
 
             string[] Logo = { text1, text2, text3, text4, text5, text6 };
             int width = Console.WindowWidth;
-            
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             for (int i = 0; i < Logo.Length; i++) 
             {
@@ -37,6 +36,11 @@ namespace ConsoleRPG
             Console.Write("    Список команд:\n");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(" /continue");
+            Console.ResetColor();
+            Console.Write(" - продолжить игру\n");
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(" /play");
             Console.ResetColor();
             Console.Write(" - начать игру\n");
@@ -49,7 +53,7 @@ namespace ConsoleRPG
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(" /quit");
             Console.ResetColor();
-            Console.WriteLine(" - выйти из игры \n\n");
+            Console.WriteLine(" - выйти из игры \n");
         }
         private void UserCom()
         {
